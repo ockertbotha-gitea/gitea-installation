@@ -13,8 +13,9 @@ chmod +x gitea
 
 ## Verify GPG signature
 ```
+wget https://dl.gitea.io/gitea/1.8/gitea-1.8-linux-amd64.asc
 gpg --keyserver pgp.mit.edu --recv 7C9E68152594688862D62AF62D9AE806EC1592E2
-gpg --verify gitea-1.8-linux-amd64.asc gitea-1.80-linux-amd64
+gpg --verify gitea-1.8-linux-amd64.asc gitea
 ```
 
 ## Test
