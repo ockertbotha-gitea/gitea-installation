@@ -28,6 +28,33 @@ This runs Gitea, the application can be moved. It can be stopped with a good old
 ## Configure the Server
 
 ## 1. Prepare environment
+Check that Git is installed. If not, install it first.
 ```
 git --version
+```
+Create user to run Gitea
+```
+sudo adduser \
+  --system \
+  --shell /bin/bash \
+  --gecos 'Git Version Control' \
+  --group \
+  --disabled-password \
+  --home /home/git \
+  git
+```
+
+## 2. Create directory structure
+```
+sudo mkdir -p /var/lib/gitea/{custom,data,log}
+sudo chown -R git:git /var/lib/gitea/
+sudo chmod -R 750 /var/lib/gitea/
+sudo mkdir /etc/gitea
+sudo chown root:git /etc/gitea
+sudo chmod 770 /etc/gitea
+```
+
+## 3. Copy Gitea binary to global location
+```
+sudo cp gitea /usr/local/bin/gitea
 ```
