@@ -29,7 +29,92 @@ sudo systemctl enable nginx.service
 ```
 
 ## Install Git
+```
+sudo apt -y install git
+```
+Check it worked with:
+```
+git --version
+```
+## Install MariaDB Database Server
+```
+sudo apt -y install mariadb-server mariadb-client
+```
 
+Secure the MariaDB server by creating a rood password and disallowing remote
+access.
+```
+sudo mysql_secure_installation
+```
+
+When prompted provide the following answers (create your own password):
+```
+Enter current password for root (enter for none): Just press the Enter
+Set root password? [Y/n]: Y
+New password: Enter password
+Re-enter new password: Repeat password
+Remove anonymous users? [Y/n]: Y
+Disallow root login remotely? [Y/n]: Y
+Remove test database and access to it? [Y/n]:  Y
+Reload privilege tables now? [Y/n]:  Y
+```
+
+Restart MariaDB
+```
+sudo systemctl restart mariadb.service
+```
+
+Test if MariaDB is installed, logon:
+```
+sudo mysql -u root -p
+```
+You will be prompted for the password you created earlier.
+
+Once you're logged in, the MariaDB welcome message will be displayed.
+
+Create a database called *gitea*.
+```
+CREATE DATABASE gitea;
+```
+
+Create a database user called *giteauser* with a new password.
+```
+CREATE USER 'giteauser'@'localhost' IDENTIFIED BY 'new_password_here';
+```
+
+Then grant the user fill access to the database.
+```
+GRANT ALL ON gitea.* TO 'giteauser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
+```
+
+Finally, save the changes and exit.
+```
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+## Prepare the Gitea environment
+Create user to run Gitea
+```
+sudo adduser \
+  --system \
+  --shell /bin/bash \
+  --gecos 'Git Version Control' \
+  --group \
+  --disabled-password \
+  --home /home/git \
+  git
+```
+
+## Create directory structure
+```
+sudo mkdir -p /var/lib/gitea/{custom,data,indexers,public,log}
+sudo chown -R git:git /var/lib/gitea/{data,indexers,log}
+sudo chmod -R 750 /var/lib/gitea/{data,indexers,log}
+sudo mkdir /etc/gitea
+sudo chown root:git /etc/gitea
+sudo chmod 770 /etc/gitea
+```
 
 ## Get the installation files
 ```
@@ -44,43 +129,7 @@ gpg --keyserver pgp.mit.edu --recv 7C9E68152594688862D62AF62D9AE806EC1592E2
 gpg --verify gitea-1.8-linux-amd64.asc gitea
 ```
 
-## Test
-This runs Gitea, the application can be moved. It can be stopped with a good old
-**Ctrl+C**
-```
-./gitea web
-```
-
-## Configure the Server
-
-## 1. Prepare environment
-Check that Git is installed. If not, install it first.
-```
-git --version
-```
-Create user to run Gitea
-```
-sudo adduser \
-  --system \
-  --shell /bin/bash \
-  --gecos 'Git Version Control' \
-  --group \
-  --disabled-password \
-  --home /home/git \
-  git
-```
-
-## 2. Create directory structure
-```
-sudo mkdir -p /var/lib/gitea/{custom,data,log}
-sudo chown -R git:git /var/lib/gitea/
-sudo chmod -R 750 /var/lib/gitea/
-sudo mkdir /etc/gitea
-sudo chown root:git /etc/gitea
-sudo chmod 770 /etc/gitea
-```
-
-## 3. Copy Gitea binary to global location
+## Copy Gitea binary to global location
 ```
 sudo cp gitea /usr/local/bin/gitea
 ```
