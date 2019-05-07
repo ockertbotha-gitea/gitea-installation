@@ -138,10 +138,11 @@ sudo cp gitea /usr/local/bin/gitea
 These instructions will setup Gitea to run as an Ubuntu systemd service.
 We're going to be using Ubuntu 18.04 LTS.
 
-## 1. Create the service descriptor
+### 1. Create the service descriptor
 We'll create the file, copy the contents into it.
 We have modified  the following items,
 so check the values are relevant to your requirements:
+- Since we're using MariaDB  uncomment this.
 - User and home directory values.
 ```
 sudo nano /etc/systemd/system/gitea.service
@@ -153,7 +154,7 @@ Description=Gitea (Git with a cup of tea)
 After=syslog.target
 After=network.target
 #Requires=mysql.service
-#Requires=mariadb.service
+Requires=mariadb.service
 #Requires=postgresql.service
 #Requires=memcached.service
 #Requires=redis.service
@@ -183,10 +184,94 @@ Environment=USER=git HOME=/home/git GITEA_WORK_DIR=/var/lib/gitea
 WantedBy=multi-user.target
 ```
 
-## 2. Enable set the service to start at boot
-We'll create the file, copy the contents into it.
-
+### 2. Enable the service to start at boot
 ```
+sudo systemctl daemon-reload
 sudo systemctl enable gitea
 sudo systemctl start gitea
+```
+Check the status command
+```
+sudo systemctl status gitea
+```
+
+## Configure Nginx as a reverse proxy
+Delete the default Nginx configuration file.
+```
+sudo rm /etc/nginx/sites-enabled/default
+```
+
+Create a reverse proxy configuration for Gitea and copy the contents:
+```
+sudo nano /etc/nginx/sites-available/git
+```
+
+Change the server_name value to the correct machine name / ip address value.
+```
+upstream gitea {
+    server 127.0.0.1:3000;
+}
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name example.com;
+    root /var/lib/gitea/public;
+    access_log off;
+    error_log off;
+
+    location / {
+      try_files maintain.html $uri $uri/index.html @node;
+    }
+
+    location @node {
+      client_max_body_size 0;
+      proxy_pass http://localhost:3000;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_max_temp_file_size 0;
+      proxy_redirect off;
+      proxy_read_timeout 120;
+    }
+}
+```
+
+Enable the Gitea Nginx reverse proxy configuration
+```
+sudo ln -s /etc/nginx/sites-available/git /etc/nginx/sites-enabled
+```
+
+Reload the Nginx Service
+```
+sudo systemctl reload nginx.service
+```
+
+## Initial Configuration
+Next web browse to your server or IP address:
+```
+http://example.com/install
+```
+
+### Database Settings
+```
+Database Type:  MySQL
+Host:           127.0.0.1:3306
+Username:       gitea
+Password:       new_password_here
+Database Name:  gitea
+```
+
+### General Settings
+```
+Site Title:               MySQL
+Repository Root Path:     /home/git/gitea-repositories
+Git LFS Root Path:        /var/lib/gitea/data/lfs
+Run As Username:          git
+SSH Server Domain:        localhost
+SSH Server Port:          22
+Gitea HTTP Listen Port:   3000
+Gitea Base URL:           http://localhost:3000
+Log Path:                 /var/lib/gitea/log
 ```
