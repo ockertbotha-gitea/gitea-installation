@@ -12,7 +12,7 @@ sudo apt update
 sudo apt -y install nginx
 ```
 
-Use curl to check this worked that Nginx is working:
+Use curl to check this worked and that Nginx is working:
 ```
 curl http://example.com
 ```
