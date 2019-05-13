@@ -94,13 +94,18 @@ EXIT;
 ```
 
 ## Prepare the Gitea environment
+Creat a group for the user
+```
+sudo addgroup --system git
+```
+
 Create user to run Gitea
 ```
 sudo adduser \
   --system \
   --shell /bin/bash \
   --gecos 'Git Version Control' \
-  --group \
+  --ingroup git \
   --disabled-password \
   --home /home/git \
   git
