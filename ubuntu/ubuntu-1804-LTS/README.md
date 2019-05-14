@@ -258,25 +258,3 @@ Next web browse to your server or IP address:
 ```
 http://example.com/install
 ```
-
-### Database Settings
-```
-Database Type:  MySQL
-Host:           127.0.0.1:3306
-Username:       gitea
-Password:       new_password_here
-Database Name:  gitea
-```
-
-### General Settings
-```
-Site Title:               MySQL
-Repository Root Path:     /home/git/gitea-repositories
-Git LFS Root Path:        /var/lib/gitea/data/lfs
-Run As Username:          git
-SSH Server Domain:        localhost
-SSH Server Port:          22
-Gitea HTTP Listen Port:   3000
-Gitea Base URL:           http://localhost:3000
-Log Path:                 /var/lib/gitea/log
-```
