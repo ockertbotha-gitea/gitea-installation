@@ -9,6 +9,6 @@ first attempt.
 
 - [Ubuntu 18.04 LTS](/ubuntu/ubuntu-1804-LTS/README.md)
 
-## Update: 14 May 2019
+### Update: 14 May 2019
 With what looks like a solid installation completed, it's time to take a closer
 look at Gitea configuration, this too will end up in it's own folder structure.
