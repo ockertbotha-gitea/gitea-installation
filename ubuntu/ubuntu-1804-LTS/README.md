@@ -258,3 +258,4 @@ Next web browse to your server or IP address:
 ```
 http://example.com/install
 ```
+and continue with the [guide.](/configuration/01-InitialConfiguration.md)
