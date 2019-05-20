@@ -1,4 +1,4 @@
-#Gitea configuration
+# Gitea configuration
 
 This is a basic configuration, accessed by web browsing to
 http://your-gitea-domain/install or http://your-gitea-ip/install
@@ -46,4 +46,4 @@ Email Address:            (must be provided if you want administrator account)
 The installer will automatically redirect you to a url with
 http://localhost:3000/user/login which might work depending on your context,
 but you'll probably need to change that part of it to
-http://your-gitea-domain-or-ip/user/login 
+http://your-gitea-domain-or-ip/user/login
