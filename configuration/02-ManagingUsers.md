@@ -40,4 +40,4 @@ Require user to change password:  unchecked
 ```
 
 With that all done your lift of users should resemble the following:
-![](screenshots/0201-user-accounts.png?raw=true)
+![](screenshots/0201-user-accounts-02.png?raw=true)
