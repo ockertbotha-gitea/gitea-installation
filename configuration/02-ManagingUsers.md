@@ -39,5 +39,5 @@ Password:                         password
 Require user to change password:  unchecked                  
 ```
 
-With that all done your lift of users should resemble the following:
+With that all done your list of users should resemble the following:
 ![](screenshots/0201-user-accounts-02.png?raw=true)
