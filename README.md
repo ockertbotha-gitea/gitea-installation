@@ -7,7 +7,7 @@ experiences when installing it. These will be organised in directories by the
 host OS. Some forward planning just in case this experiment goes beyond the
 first attempt.
 
-- [Ubuntu 18.04 LTS](/ubuntu/ubuntu-1804-LTS/README.md)
+- [Ubuntu 18.04 LTS](/ubuntu/ubuntu-1804-LTS/01-Installation.md)
 
 ### Update: 14 May 2019
 With what looks like a solid installation completed, it's time to take a closer
