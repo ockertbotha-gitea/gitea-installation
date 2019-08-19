@@ -12,5 +12,5 @@ first attempt.
 ### Update: 12 August 2019
 Having just completed an HTTPS installation, it's time to rework the
 configuration section: Gitea configurations are quite straightforward so I'm
-going to try and create companion projects to demonstrate some practical
+going to create companion projects to demonstrate some practical
 applications of git + gitea.

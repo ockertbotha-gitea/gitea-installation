@@ -1,6 +1,11 @@
 # Gitea managing users
 
-This is a basic guide to user account management, start by browsing to
+Managing users and groups is straightforward and what we'll do now is
+configure our shiny new system to have two groups of users each with their own
+project and with both groups having access to a shared project:
+![](screenshots/0202-UserGroupProjectMap-v01.png?raw=true)
+
+Start by browsing to
 http://your-gitea-domain/admin/users or http://your-gitea-ip/admin/users
 
 ## Create User Accounts
@@ -12,7 +17,7 @@ make the following test user:
 
 ```
 Authentication Source:            Local
-Username:                         JaneTest
+Username:                         Jane
 Email Address:                    jane@test.com
 Password:                         password
 Require user to change password:  unchecked                  
@@ -20,12 +25,12 @@ Require user to change password:  unchecked
 
 Press the **Create User Account** button. This creates the user account and
 navigates to the associated **Edit User Account** page. As we're only creating
-a few more test users navigate back to **../admin/users** and create
-the following test users.
+some test users navigate back to **../admin/users** and create
+the following:
 
 ```
 Authentication Source:            Local
-Username:                         PeterTest
+Username:                         Peter
 Email Address:                    peter@test.com
 Password:                         password
 Require user to change password:  unchecked                  
@@ -33,11 +38,35 @@ Require user to change password:  unchecked
 
 ```
 Authentication Source:            Local
-Username:                         SusanTest
-Email Address:                    susan@test.com
+Username:                         Linda
+Email Address:                    linda@test.com
+Password:                         password
+Require user to change password:  unchecked                  
+```
+
+```
+Authentication Source:            Local
+Username:                         John
+Email Address:                    john@test.com
+Password:                         password
+Require user to change password:  unchecked                  
+```
+
+```
+Authentication Source:            Local
+Username:                         Mary
+Email Address:                    mary@test.com
+Password:                         password
+Require user to change password:  unchecked                  
+```
+
+```
+Authentication Source:            Local
+Username:                         Paul
+Email Address:                    paul@test.com
 Password:                         password
 Require user to change password:  unchecked                  
 ```
 
 With that all done your list of users should resemble the following:
-![](screenshots/0201-user-accounts-02.png?raw=true)
+![](screenshots/0201-UserAccounts-v03.png?raw=true)
