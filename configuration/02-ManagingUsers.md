@@ -69,4 +69,4 @@ Require user to change password:  unchecked
 ```
 
 With that all done your list of users should resemble the following:
-![](screenshots/0201-UserAccounts-v03.png?raw=true)
+![](screenshots/0201-UserAccounts-v04.png?raw=true)
