@@ -12,8 +12,8 @@ http://your-gitea-domain/admin/users or http://your-gitea-ip/admin/users
 The **User Account Management** screen lists all the current users and if you've
 been following these guides there will be only be the one: *'gitadmin'*
 
-Let's create a few users; press the **Create User Account** button and
-make the following test user:
+Let's create the users; press the **Create User Account** button and
+start with Jane:
 
 ```
 Authentication Source:            Local
@@ -70,3 +70,6 @@ Require user to change password:  unchecked
 
 With that all done your list of users should resemble the following:
 ![](screenshots/0201-UserAccounts-v04.png?raw=true)
+
+## Creating Groups or Organizations
+Follow the [Managing Organizations Guide](./03-ManagingOrganizations.md).
