@@ -22,5 +22,5 @@ before jumping ahead.
 
 - [Initial Configuration](/configuration/01-InitialConfiguration.md)
 - [Managing Users](/configuration/02-ManagingUsers.md)
-- [Managing Organizations](/configuration/02-ManagingOrganizations.md)
-- [Managing Repositories](/configuration/02-ManagingRepositories.md)
+- [Managing Organizations](/configuration/03-ManagingOrganizations.md)
+- [Managing Repositories](/configuration/04-ManagingRepositories.md)
