@@ -75,7 +75,7 @@ the team.
 ## Teams
 Now that we're done with creating teams and adding members if you browse to
 **../org/TestCompany/teams** it should look like this:
-![](screenshots/0203-AllTeams-v01.png?raw=true)
+![](screenshots/0204-AllTeams-v01.png?raw=true)
 
 ## Managing Repositories
 Follow the [Managing Repositories Guide](./04-ManagingRepositories.md).
