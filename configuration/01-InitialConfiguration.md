@@ -47,3 +47,6 @@ The installer will automatically redirect you to a url with
 http://localhost:3000/user/login which might work depending on your context,
 but you'll probably need to change that part of it to
 http://your-gitea-domain-or-ip/user/login
+
+## Managing Users
+Next we'll [Manage Users](./02-ManagingUsers.md).

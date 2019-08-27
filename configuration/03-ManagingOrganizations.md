@@ -1,7 +1,7 @@
 # Gitea managing organizations and teams
 
 We're going to create the *Organization* and *Teams* so that we can group our users:
-![](screenshots/0202-UserGroupProjectMap-v01.png?raw=true)
+![](screenshots/0202-UserGroupProjectMap-v02.png?raw=true)
 
 Start by browsing to
 http://your-gitea-domain/admin/orgs or http://your-gitea-ip/admin/orgs`
@@ -75,7 +75,7 @@ the team.
 ## Teams
 Now that we're done with creating teams and adding members if you browse to
 **../org/TestCompany/teams** it should look like this:
-![](screenshots/0203-DevOpsTeam-v01.png?raw=true)
+![](screenshots/0203-AllTeams-v01.png?raw=true)
 
 ## Managing Repositories
-Follow the [Managing Repositories Guide](./03-ManagingOrganizations.md).
+Follow the [Managing Repositories Guide](./04-ManagingRepositories.md).

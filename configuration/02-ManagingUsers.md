@@ -3,7 +3,7 @@
 Managing users and groups is straightforward and what we'll do now is
 configure our shiny new system to have two groups of users each with their own
 project and with both groups having access to a shared project:
-![](screenshots/0202-UserGroupProjectMap-v01.png?raw=true)
+![](screenshots/0202-UserGroupProjectMap-v02.png?raw=true)
 
 Start by browsing to
 http://your-gitea-domain/admin/users or http://your-gitea-ip/admin/users
@@ -71,5 +71,5 @@ Require user to change password:  unchecked
 With that all done your list of users should resemble the following:
 ![](screenshots/0201-UserAccounts-v04.png?raw=true)
 
-## Creating Groups or Organizations
+## Creating Organizations and Teams
 Follow the [Managing Organizations Guide](./03-ManagingOrganizations.md).
