@@ -20,38 +20,12 @@ gitea cert --host [HOST]
 
 Copy the key files into the keys directory and set the permissions
 ```
-sudo cp /home/user/{cert.pem,key.pem} /var/lib/gitea/keys
+sudo cp /home/[user]/{cert.pem,key.pem} /var/lib/gitea/keys
 sudo chown -R git:git /var/lib/gitea/keys
 sudo chmod -R 750 /var/lib/gitea/keys
 ```
 
-### Update the gitea and nginx configurations
-Open the app.ini file
-```
-sudo nano /etc/gitea/app.ini
-```
-
-Change the following parts to reflect your values
-```
-[server]
-PROTOCOL = https
-ROOT_URL = `https://[HOST]`
-HTTP_PORT = 3000
-CERT_FILE = /var/lib/gitea/keys/cert.pem
-KEY_FILE = /var/lib/gitea/keys/key.pem  
-```
-
-Restart gitea
-```
-sudo systemctl restart gitea
-```
-
-Check gitea has started correctly; if this is the case the following will
-report that the service is active(running), if not it will detail the error.
-```
-sudo systemctl status gitea
-```
-
+### Update the nginx configurations
 Open the Gitea nginx configuration file
 ```
 sudo nano /etc/nginx/sites-available/git
@@ -65,10 +39,10 @@ upstream gitea {
 }
 
 server {
-  listen                80 default_server;
-  listen                [::]:80 default_server;
-  server_name           [HOST];
-  return 301            https://$host$request_uri;  
+    listen                80 default_server;
+    listen                [::]:80 default_server;
+    server_name           [HOST];
+    return 301            https://$host$request_uri;  
 }
 
 server {
