@@ -123,15 +123,15 @@ sudo chmod 770 /etc/gitea
 
 ## Get the installation files
 ```
-wget -O gitea https://dl.gitea.io/gitea/1.8/gitea-1.8-linux-amd64
+wget -O gitea https://dl.gitea.io/gitea/1.9.5/gitea-1.9.5-linux-amd64
 chmod +x gitea
 ```
 
 ## Verify GPG signature
 ```
-wget https://dl.gitea.io/gitea/1.8/gitea-1.8-linux-amd64.asc
+wget https://dl.gitea.io/gitea/1.9.5/gitea-1.9.5-linux-amd64.asc
 gpg --keyserver pgp.mit.edu --recv 7C9E68152594688862D62AF62D9AE806EC1592E2
-gpg --verify gitea-1.8-linux-amd64.asc gitea
+gpg --verify gitea-1.9.5-linux-amd64.asc gitea
 ```
 
 ## Copy Gitea binary to global location
