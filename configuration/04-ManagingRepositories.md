@@ -78,4 +78,4 @@ click the **Add Team Repository** button.
 ## Summary
 At this point you should be able to login as any of the users and only be able
 to see the repositories for the groups to which the user belongs. For now we're
-going to stop our guides as this point.
+going to stop our guides here.

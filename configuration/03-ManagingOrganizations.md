@@ -57,9 +57,9 @@ Press the **Create Team** button, then navigate to
 **../org/TestCompany/teams/development** and add Jane, Peter and Linda to
 the team.
 
-### 3. Development
+### 3. Operations
 Navigate to **.../org/TestCompany/teams** press that **New Team** button
-and add *Development*:
+and add *Operations*:
 ```
 Team Name:          Operations
 Description:        All the gnarly technicians hang out here.
