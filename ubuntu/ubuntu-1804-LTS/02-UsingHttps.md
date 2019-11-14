@@ -25,8 +25,45 @@ sudo chown -R git:git /var/lib/gitea/keys
 sudo chmod -R 750 /var/lib/gitea/keys
 ```
 
-### Update the nginx configurations
-Open the Gitea nginx configuration file
+### Problem: SSL certificate - Unable to get local issuer certificate
+Your git installation or git client may produce the above error, this
+is because our self-generated certificates cannot be validated. Unless you
+have access to and are able to configure Certificate Authority for some genuine
+certificates then we can just work around the issue by telling git not to
+verify the certificates:
+```
+git config --global http.sslVerify false
+```
+
+### Update the gitea configuration
+Open the gitea app.ini file
+```
+sudo nano /etc/gitea/app.ini
+```
+
+Change the following parts to reflect your values
+```
+[server]
+PROTOCOL = http
+ROOT_URL = 'https://[HOST]''
+HTTP_PORT = 3000
+CERT_FILE = /var/lib/gitea/keys/cert.pem
+KEY_FILE = /var/lib/gitea/keys/key.pem  
+```
+
+Restart gitea
+```
+sudo systemctl restart gitea
+```
+
+Check gitea has started correctly; if this is the case the following will
+report that the service is active(running), if not it will detail the error.
+```
+sudo systemctl status gitea
+```
+
+### Update the nginx configuration
+Open the nginx configuration file
 ```
 sudo nano /etc/nginx/sites-available/git
 ```
