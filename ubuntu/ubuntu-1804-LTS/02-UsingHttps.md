@@ -45,7 +45,7 @@ Change the following parts to reflect your values
 ```
 [server]
 PROTOCOL = http
-ROOT_URL = 'https://[HOST]''
+ROOT_URL = 'https://[HOST]'
 HTTP_PORT = 3000
 CERT_FILE = /var/lib/gitea/keys/cert.pem
 KEY_FILE = /var/lib/gitea/keys/key.pem  
@@ -123,6 +123,6 @@ sudo systemctl reload nginx.service
 ## Initial Configuration
 Next web browse to your server or IP address:
 ```
-http://example.com/install
+https://example.com/install
 ```
 and continue with the [guide.](/configuration/01-InitialConfiguration.md)
